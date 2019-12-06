@@ -5,6 +5,7 @@ body {
   position: relative;
   font-family: "Arvo", serif;
   background: red;
+  transition: 0.35s all;
 }
 
 .bg {
@@ -20,6 +21,10 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   opacity: 0.85;
+  transition: opacity 0.5s;
+}
+
+.bg.blur {
 }
 
 @keyframes floating {
@@ -44,23 +49,124 @@ body {
   display: flex;
   flex-wrap: wrap;
   z-index: 1;
+  transition: opacity 0.5s;
 }
 
 .box {
+  position: absolute;
   height: 80px;
   width: 80px;
   border-radius: 50%;
   margin: 10px;
   line-height: 80px;
   text-align: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 1);
   font-size: 28px;
   font-weight: bold;
   transition: 0.35s all;
 }
 
+.box.box-1 {
+  top: 0;
+  left: 0;
+}
+.box.box-2 {
+  top: 0;
+  left: 100px;
+}
+.box.box-3 {
+  top: 0;
+  left: 200px;
+}
+.box.box-4 {
+  top: 0;
+  left: 300px;
+}
+.box.box-5 {
+  top: 0;
+  left: 400px;
+}
+.box.box-6 {
+  top: 0;
+  left: 500px;
+}
+
+.box.box-7 {
+  top: 100px;
+  left: 0;
+}
+.box.box-8 {
+  top: 100px;
+  left: 100px;
+}
+.box.box-9 {
+  top: 100px;
+  left: 200px;
+}
+.box.box-10 {
+  top: 100px;
+  left: 300px;
+}
+.box.box-11 {
+  top: 100px;
+  left: 400px;
+}
+.box.box-12 {
+  top: 100px;
+  left: 500px;
+}
+
+.box.box-13 {
+  top: 200px;
+  left: 0;
+}
+.box.box-14 {
+  top: 200px;
+  left: 100px;
+}
+.box.box-15 {
+  top: 200px;
+  left: 200px;
+}
+.box.box-16 {
+  top: 200px;
+  left: 300px;
+}
+.box.box-17 {
+  top: 200px;
+  left: 400px;
+}
+.box.box-18 {
+  top: 200px;
+  left: 500px;
+}
+
+.box.box-19 {
+  top: 300px;
+  left: 0;
+}
+.box.box-20 {
+  top: 300px;
+  left: 100px;
+}
+.box.box-21 {
+  top: 300px;
+  left: 200px;
+}
+.box.box-22 {
+  top: 300px;
+  left: 300px;
+}
+.box.box-23 {
+  top: 300px;
+  left: 400px;
+}
+.box.box-24 {
+  top: 300px;
+  left: 500px;
+}
+
 .box.present:hover {
-  transform: scale(2);
 }
 
 .box.past {
@@ -79,13 +185,133 @@ body {
   background: rgba(255, 255, 255, 0.35);
 }
 
+.box.open {
+  border-radius: 20px;
+  background: #333;
+  box-shadow: none;
+  z-index: 2;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.85);
+}
+
 a.attribution {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.5);
   text-shadow: 1px 1px 1px #666;
   text-decoration: none;
   font-size: 12px;
   z-index: 1;
+}
+
+.lightrope {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  margin: -15px 0 0 0;
+  padding: 0;
+  pointer-events: none;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.lightrope li {
+  position: relative;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 12px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 20px;
+  display: inline-block;
+  background: #00f7a5;
+  box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
+  animation-name: flash-1;
+  animation-duration: 2s;
+}
+.lightrope li:nth-child(2n + 1) {
+  background: cyan;
+  box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 255, 255, 0.5);
+  animation-name: flash-2;
+  animation-duration: 0.4s;
+}
+.lightrope li:nth-child(4n + 2) {
+  background: #f70094;
+  box-shadow: 0px 4.6666666667px 24px 3px #f70094;
+  animation-name: flash-3;
+  animation-duration: 1.1s;
+}
+.lightrope li:nth-child(odd) {
+  animation-duration: 1.8s;
+}
+.lightrope li:nth-child(3n + 1) {
+  animation-duration: 1.4s;
+}
+.lightrope li:before {
+  content: "";
+  position: absolute;
+  background: #222;
+  width: 10px;
+  height: 9.3333333333px;
+  border-radius: 3px;
+  top: -4.6666666667px;
+  left: 1px;
+}
+.lightrope li:after {
+  content: "";
+  top: -14px;
+  left: 9px;
+  position: absolute;
+  width: 52px;
+  height: 18.6666666667px;
+  border-bottom: solid #222 2px;
+  border-radius: 50%;
+}
+.lightrope li:last-child:after {
+  content: none;
+}
+.lightrope li:first-child {
+  margin-left: -40px;
+}
+
+@keyframes flash-1 {
+  0%,
+  100% {
+    background: #00f7a5;
+    box-shadow: 0px 4.6666666667px 24px 3px #00f7a5;
+  }
+  50% {
+    background: rgba(0, 247, 165, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 247, 165, 0.2);
+  }
+}
+
+@keyframes flash-2 {
+  0%,
+  100% {
+    background: cyan;
+    box-shadow: 0px 4.6666666667px 24px 3px cyan;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes flash-3 {
+  0%,
+  100% {
+    background: #f70094;
+    box-shadow: 0px 4.6666666667px 24px 3px #f70094;
+  }
+  50% {
+    background: rgba(247, 0, 148, 0.4);
+    box-shadow: 0px 4.6666666667px 24px 3px rgba(247, 0, 148, 0.2);
+  }
 }
